@@ -2,6 +2,6 @@ title: Jeremy Fletcher Links
 description: Usefull links and bookmarks
 show_downloads: false
 google_analytics:
-theme: jekyll-theme-midnight
+theme: jekyll-theme-minima
 readme_index:
   enabled:          false

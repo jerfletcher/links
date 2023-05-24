@@ -3,3 +3,5 @@ description: Usefull links and bookmarks
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-midnight
+readme_index:
+  enabled:          false

@@ -6,5 +6,3 @@ baseurl: /
 show_downloads: false
 google_analytics:
 theme: minima
-readme_index:
-  enabled:          false

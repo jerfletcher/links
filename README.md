@@ -1,4 +1,3 @@
-# links
-This is the site
-- this is a thing
-- this is a thing [this is the link](http://www.google.com/)
+# links site for sharing things
+
+This is a link site with google pages that i will use to share links with people.

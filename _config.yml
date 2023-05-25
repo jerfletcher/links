@@ -1,7 +1,6 @@
 title: Jeremy Fletcher Links
 description: Usefull links and bookmarks
-root: /
-baseurl: /
+baseurl: 
 url: https://links.jeremyfletcher.net
 show_downloads: false
 google_analytics:

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Usefull links
 ## Bookmarklets
 Drag and drop links to bookmark toolbar

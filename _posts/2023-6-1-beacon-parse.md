@@ -3,10 +3,8 @@ layout: post
 permalink: beacon-parse
 title: "Adobe Beacone Parser"
 categories: tools
-head:
-  - <link href="https://cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
 ---
-
+<link href="https://cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
 <div class="mui-container-fluid">
     <div class="mui--text-display1">Beacon Parse</div>
     <div class="mui-textfield">

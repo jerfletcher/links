@@ -4,5 +4,5 @@ domain: links.jeremyfletcher.net       # if you want to force HTTPS, specify the
 url: https://links.jeremyfletcher.net  # the base hostname and protocol for your site, e.g. http://example.com
 baseurl: /
 show_downloads: false
-google_analytics:
+google_analytics: UA-27500473-1
 theme: minima

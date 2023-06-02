@@ -1,12 +1,35 @@
 ---
 layout: post
 permalink: beacon-parse
-title: "Adobe Beacone Parser"
+title: "Adobe Beacon Parser"
 categories: tools
 ---
 <link href="https://cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+<style>
+    div.wrapper {
+        margin: 0,0,0,0;
+        max-width:initial;
+    }
+    table {
+        word-break: break-all;
+    }
+    .mui-table>tbody>tr>td,
+    .mui-table>tbody>tr>th,
+    .mui-table>tfoot>tr>td,
+    .mui-table>tfoot>tr>th,
+    .mui-table>thead>tr>td,
+    .mui-table>thead>tr>th {
+        padding: 5px;
+        line-height: 1;
+    }
+    table.mui-table>thead>tr>th:first-of-type {
+        width:200px;
+    }
+    tr:nth-child(even) {
+        background-color: lightgray;
+    }
+</style>
 <div class="mui-container-fluid">
-    <div class="mui--text-display1">Beacon Parse</div>
     <div class="mui-textfield">
         <textarea name="beacon" id="beacon" class="textArea" placeholder="Paste Beacon Code Here"></textarea>
     </div>

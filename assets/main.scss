@@ -8,6 +8,11 @@ body,
     color:#888
 }
 /*
+header {
+    margin: 0, 0, 0, 0;
+    max-width: initial;
+}
+
 .site-nav .page-link,
 .site-nav .page-link:visited,
 */
@@ -20,7 +25,7 @@ body,
     color: #fff;
 }
 .site-header {
-    border-top: 5px solid #bbb;
+    border-top: 5px solid #ddd;
 }
 .site-title {
     transform: rotateY(180deg);

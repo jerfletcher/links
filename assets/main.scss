@@ -1,0 +1,34 @@
+---
+---
+@import "{{ site.theme }}";
+@import "https://cdn.muicss.com/mui-0.10.3/css/mui.min.css";
+
+.beacon-parser-page {
+
+    table {
+        word-break: break-all;
+    }
+
+    .mui-table>tbody>tr>td,
+    .mui-table>tbody>tr>th,
+    .mui-table>tfoot>tr>td,
+    .mui-table>tfoot>tr>th,
+    .mui-table>thead>tr>td,
+    .mui-table>thead>tr>th {
+        padding: 5px;
+        line-height: 1;
+    }
+
+    table.mui-table>thead>tr>th:first-of-type {
+        width: 200px;
+    }
+
+    tr:nth-child(even) {
+        background-color: lightgray;
+    }
+
+    .colDelete {
+        float: right;
+        cursor: pointer;
+    }
+}

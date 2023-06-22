@@ -1,7 +1,7 @@
 ---
 layout: post
 permalink: beacon-parse
-title: "Adobe Beacon Parser"
+title: "Network Beacon Parser"
 categories: tools
 ---
 <style>
@@ -9,15 +9,57 @@ categories: tools
         margin: 0, 0, 0, 0;
         max-width: initial;
     }
+    #dropArea {
+        border: 2px dashed #ccc;
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    #pasteBin {
+        opacity: 0.01;
+        width: 100%;
+        height: 1px;
+        overflow: hidden;
+    }
+    #beaconList {
+        max-height: 200px;
+        margin-bottom: 10px;
+        overflow-y: scroll;
+    }
+    #filterContainer {
+        padding: 10px;
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    #filterInput {
+        padding: 5px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        
+    }
+    .urlEntry {
+        display: block;
+        margin-bottom: 5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        overflow: hidden;
+        height:24px;
+    }
 </style>
 <div class="mui-container-fluid beacon-parser-page">
-    <form>
-        <div class="mui-textfield">
-            <textarea name="beacon" id="beacon" class="textArea" placeholder="Paste Beacon Code Here"></textarea>
-        </div>
-        <button id="button" type="button" class="mui-btn mui-btn--primary">Parse Beacon</button>
-    </form>
-    <div id="result"></div>
+    <div contenteditable="true" id="pasteBin"></div>
+    <div id="dropArea">Paste Beacon code or drop .har file here.</div>
+    <div id="filterContainer" class="mui-textfield">
+        <input type="text" id="filterInput" placeholder="Type to filter URLs">
+    </div>
+    <div id="beaconList"></div>
+    <div id="resultTable"></div>
 </div>
 <script src="/static/beaconParse.js" type="text/javascript"></script>
 

@@ -56,23 +56,18 @@ function setupDelete() {
         el.addEventListener("click", (event) => {
             console.log('here');
             const index = event.target.getAttribute('data-colIndex')
-            trimBeacons(index, 'result')
+            trimBeacons(index, 'resultTable')
         });
     }
     );
 }
 
-function parseBeacon(srcId, resultId, textData) {
-    const text = textData || document.getElementById(srcId).value;
+function parseBeacon(textData, resultId) {
+    const text = textData
     const result = document.getElementById(resultId);
     beacons.push(adobeAAM_parseParams(text))
     result.innerHTML = jsonToTable(beacons).outerHTML;
     setupDelete()
-    //reset text
-    setTimeout(() => {
-        document.getElementById(srcId).value = '';
-    }, 1)
-
 }
 function trimBeacons(index, resultId) {
     const result = document.getElementById(resultId);
@@ -81,12 +76,80 @@ function trimBeacons(index, resultId) {
     setupDelete()
 }
 var beacons = []
-
-document.getElementById('button').addEventListener('click', () => {
-    parseBeacon('beacon', 'result')
-});
-document.getElementById('beacon').addEventListener('paste', (event) => {
+document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey || event.metaKey) {
+      if (String.fromCharCode(event.which).toLowerCase() === 'v') {
+        const pastebin = document.getElementById('pasteBin');
+        pastebin.innerHTML = '';
+        pastebin.focus();
+      }
+    }
+  });
+document.getElementById('pasteBin').addEventListener('paste', (event) => {
     var clipboardData = event.clipboardData.getData("text/plain");
 
-    parseBeacon('beacon', 'result', clipboardData)
+    parseBeacon(clipboardData, 'resultTable')
 });
+
+//harfile stuff
+function processHarFile(file) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        const harData = JSON.parse(event.target.result);
+        displayHarData(harData);
+    };
+    reader.readAsText(file);
+}
+
+function displayHarData(harData) {
+    const beaconList = document.getElementById('beaconList');
+    let urls = [];
+    harData['log']['entries'].forEach(entry => {
+        const url = entry['request']['url'];
+        urls.push(url);
+    });
+
+    const filterInput = document.getElementById('filterInput');
+
+    filterInput.addEventListener('input', function () {
+        const filterValue = filterInput.value.toLowerCase();
+
+        const filteredUrls = urls.filter(url => url.toLowerCase().includes(filterValue));
+
+        beaconList.innerHTML = '';
+
+        filteredUrls.forEach(url => {
+            const entry = document.createElement('span');
+            entry.className = 'urlEntry';
+            entry.textContent = url;
+            entry.addEventListener('click',() => {parseBeacon(url,'resultTable')})
+            beaconList.appendChild(entry);
+        });
+    });
+
+    urls.forEach(url => {
+        const entry = document.createElement('span');
+        entry.className = 'urlEntry';
+        entry.textContent = url;
+        beaconList.appendChild(entry);
+    });
+}
+
+function handleDrop(event) {
+    event.preventDefault();
+    const file = event.dataTransfer.files[0];
+    if (file.name.endsWith('.har')) {
+        processHarFile(file);
+    } else {
+        alert('Invalid file format. Please drop a .har file.');
+    }
+}
+
+function handleDragOver(event) {
+    event.preventDefault();
+}
+
+// Add event listeners
+const dropArea = document.getElementById('dropArea');
+dropArea.addEventListener('drop', handleDrop);
+dropArea.addEventListener('dragover', handleDragOver);

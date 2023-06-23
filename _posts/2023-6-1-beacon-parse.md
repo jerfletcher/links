@@ -50,6 +50,10 @@ categories: tools
         border-radius: 3px;
         overflow: hidden;
         height:24px;
+        cursor:pointer;
+    }
+    .marked {
+        background:#cfe8cf75
     }
 </style>
 <div class="mui-container-fluid beacon-parser-page">

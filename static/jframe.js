@@ -36,6 +36,7 @@ window.jframe = (() => {
     wrapper.style.overflow = "auto"; // Enable scrolling when content exceeds wrapper size
     wrapper.style.width = `${width}px`;
     wrapper.style.height = `${height}px`;
+    wrapper.style.zindex = '1000'; 
     document.body.appendChild(wrapper);
 
     var topBar = document.createElement("div");

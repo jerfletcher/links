@@ -17,7 +17,7 @@ window.jframe = (() => {
     if (position) {
       return JSON.parse(position);
     }
-    return null;
+    return {};
   }
 
   // Handler for the mouseleave event
